@@ -1,0 +1,54 @@
+<div th:fragment="student-sidebar"  class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+    <div class="mobile-sidebar-header d-md-none">
+        <div class="header-logo">
+            <a href="/">
+                <img src="static/img/logo.png" alt="logo">
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-menu-content">
+        <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+            <li class="nav-item sidebar-nav-item">
+                <a href="/student-dashboard" class="nav-link">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/student-class" class="nav-link">
+                    <i class="fa fa-leanpub" aria-hidden="true"></i>
+                    <span>Class</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/student-test" class="nav-link">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    <span>Test</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/student-result" class="nav-link">
+                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                    <span>Result</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/student-certificate" class="nav-link">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    <span>Certificate</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(function() {
+  $('.nav li a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('menu-active');
+});
+</script>

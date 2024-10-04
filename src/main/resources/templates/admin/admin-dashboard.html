@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="ELDT Training online - ELDT Inc">
+    <meta property="og:image" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="icon" href="/static/img/favicon.png">
+    <title>ELDT Training online - ELDT Inc</title>
+    <link rel="icon" href="/static/img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/env.js"></script>
+
+</head>
+
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/admin-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold">Dashboard</h3>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Dashboard summery Start Here -->
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="item-icon bg-light-green ">
+                                    <img src="static/img/all-student.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item-content">
+                                    <div class="item-title">Total Students</div>
+                                    <div class="item-number">
+                                        <span id="totalStudents"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="item-icon bg-light-red">
+                                    <img src="static/img/money.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item-content">
+                                    <div class="item-title">Total Fee</div>
+                                    <div class="item-number">
+                                        <span>$</span><span id="totalFee"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="item-icon bg-light-blue">
+                                    <img src="static/img/schools.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item-content">
+                                    <div class="item-title">Total Schools</div>
+                                    <div class="item-number">
+                                        <span id="totalSchools"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-12 col-sm-12 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="dashboard-school mt-2">
+                            <div class="row">
+                                <div class="dash-sch-tit col-md-12">
+                                    <h5 class="card-title mb-1">All Schools List</h5>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive pt-0">
+                                <table class="table table-bordered schools-list mb-0" id="schoolListTable">
+                                    <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Contact No.</th>
+                                        <th>Email ID</th>
+                                        <th>Fees</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+
+<!-- Edit School Modal -->
+<div class="modal fade edit-chap-mod" id="editSchoolModal" tabindex="-1" aria-labelledby="editSchoolModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit School</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="add-school py-0 px-1">
+                    <form >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editSchoolName" class="form-label mb-1">School Name</label>
+                                    <input type="text" class="form-control" name="schoolName" id="editSchoolName"
+                                           placeholder="" required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editSchoolAddress" class="form-label mb-1">Address</label>
+                                    <input type="text" class="form-control" name="address" id="editSchoolAddress"
+                                           placeholder="" required="">
+                                    <span id="emailformat"> </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editMobile" class="form-label mb-1">Contact No.</label>
+                                    <input type="tel" class="form-control" name="contactNo" id="editMobile"
+                                           placeholder="" maxlength="10" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editWebsite" class="form-label mb-1">Website</label>
+                                    <input type="text" class="form-control" name="website" id="editWebsite"
+                                           placeholder="" required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editEmail" class="form-label mb-1">Email</label>
+                                    <input type="email" class="form-control" id="editEmail"
+                                           placeholder="" required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editFedTaxNumber" class="form-label mb-1">FED Tax No.</label>
+                                    <input type="text" class="form-control" name="fedTaxNo" id="editFedTaxNumber"
+                                           placeholder="" required="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editDunsNumber" class="form-label mb-1">DUNS No.</label>
+                                    <input type="text" class="form-control" name="dunsNo" id="editDunsNumber"
+                                           placeholder="" required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editFeeCharges" class="form-label mb-1">Per Student Fees</label>
+                                    <input type="number" class="form-control" id="editFeeCharges" placeholder=""
+                                           required="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-dash text-right mt-3">
+                            <button type="button" class="btn btn-primary" id="update">Submit</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit School Modal -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+<script src="static/js/main.js"></script>
+
+<script>
+$(document).ready(function () {
+var schoolId = null;
+    getSchoolList();
+    getDashboardCount();
+ });
+
+    function getDashboardCount () {
+      let headers = null;
+      console.log("document loaded");
+      if (!headers) {
+        headers = {}
+      }
+      $.ajax({
+        url: url + `/admin/count`,
+        type: "GET",
+        dataSrc: 'responseData',
+        headers: {
+          headers,
+          Authorization: 'Bearer ' + localStorage.getItem('access_token')
+        },
+        success: function (res) {
+          console.log(res);
+          $("#totalSchools").text(res.schools);
+          $("#totalStudents").text(res.students);
+          $("#totalFee").text(res.fee);
+      },
+    })
+  }
+	function getSchoolList(){
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        let t= $('#schoolListTable').DataTable();
+         t.clear();
+        $.ajax({
+            url: url + '/admin/schools',
+            type: "GET",
+            dataSrc: 'responseData',
+             headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#schoolListTable').DataTable();
+                res.map((response,index) => {
+                    t.row.add([index+1,response.name,response.address, response.mobile,response.email,response.fee,'<button type="button" class="edit-btn" data-toggle="modal" id="' + response.id + '" onclick="getSchoolDetail(this)" data-target="#editSchoolModal"><i class="fa fa-pencil-square aria-hidden="true"></i></button>']).draw(false)
+                })
+            },
+             columns: [
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+             ],
+        });
+    };
+
+    function getSchoolDetail(event) {
+            var id = event.id;
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+            $.ajax({
+                url: url + `/admin/schools/${id}`,
+                type: "GET",
+                dataSrc: 'responseData',
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (res) {
+                    schoolId = res?.id;
+                    document.getElementById('editSchoolName').value = res?.name;
+                    document.getElementById('editSchoolAddress').value = res?.address;
+                    document.getElementById('editMobile').value = res?.mobile;
+                    document.getElementById('editWebsite').value = res?.website;
+                    document.getElementById('editEmail').value = res?.email;
+                    document.getElementById('editFedTaxNumber').value = res?.fedTaxNo;
+                    document.getElementById('editDunsNumber').value = res?.dunsNo;
+                    document.getElementById('editFeeCharges').value = res?.fee;
+
+                }
+            });
+        }
+
+        $(document).delegate('#update', 'click', function () {
+          var id = schoolId;
+          let headers = null;
+            const formData = {
+                name: document.getElementById('editSchoolName').value,
+                mobile: document.getElementById('editMobile').value,
+                email: document.getElementById('editEmail').value,
+                address: document.getElementById('editSchoolAddress').value,
+                website: document.getElementById('editWebsite').value,
+                fedTaxNo: document.getElementById('editFedTaxNumber').value,
+                dunsNo: document.getElementById('editDunsNumber').value,
+                fee: document.getElementById('editFeeCharges').value,
+            }
+
+            if (!headers) {
+                headers = {}
+            }
+
+            console.log('FormData',formData);
+            $.ajax({
+                url: url +`/schools/${schoolId}`,
+                data: JSON.stringify(formData),
+                type: "PUT",
+                contentType: "application/json;charset=utf-8",
+                cache: false,
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (result) {
+                $("form").trigger("reset");
+                getSchoolList();
+                },
+                error: function () {
+                    console.log("Error : ")
+                }
+            });
+             e.preventDefault();
+        });
+
+</script>
+</body>
+</html>

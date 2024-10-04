@@ -1,0 +1,115 @@
+body {
+     margin: 0;
+}
+ .showSlide {
+     display: block 
+}
+ .showSlide img {
+     width: 100%;
+}
+ .slidercontainer {
+     max-width: 1000px;
+     position: relative;
+     margin: auto;
+}
+ .left, .right {
+     cursor: pointer;
+     position: absolute;
+     top: 50%;
+     width: auto;
+     padding: 16px;
+     margin-top: -22px;
+     color: white;
+     font-weight: bold;
+     font-size: 18px;
+     transition: 0.6s ease;
+     border-radius: 0 3px 3px 0;
+}
+ .right {
+     right: 0;
+     border-radius: 3px 0 0 3px;
+}
+ .left:hover, .right:hover {
+     background-color: rgba(115, 115, 115, 0.8);
+}
+ .content {
+     color: #eff5d4;
+     font-size: 30px;
+     padding: 8px 12px;
+     position: absolute;
+     top: 10px;
+     width: 100%;
+     text-align: center;
+}
+ .active {
+     background-color: #717171;
+}
+ .sidebar-menu-content .nav-sidebar-menu .sub-group-menu .active {
+     background-color: #042954;
+}
+ .sidebar-menu-content .nav-sidebar-menu .sub-group-menu .active .nav-link {
+     background-color: #194f8f;
+     color: #fff !important;
+}
+ .sidebar-menu-content .nav-sidebar-menu .sub-group-menu .dis-wrap {
+     background: #e0ebfd;
+}
+ .sidebar-menu-content .nav-sidebar-menu .sub-group-menu .dis-wrap .nav-link {
+     background: #e0ebfd;
+     color: #fff;
+}
+ .sidebar-menu-content .nav-sidebar-menu .sub-group-menu .active a {
+     color: #fff;
+}
+/* Fading animation */
+ .fade {
+     -webkit-animation-name: fade;
+     -webkit-animation-duration: 1.5s;
+     animation-name: fade;
+     animation-duration: 1.5s;
+}
+ .player-erro-wrapa .right {
+     cursor: pointer;
+     position: absolute;
+     top: 105%;
+     width: auto;
+     padding: 15px;
+     margin-top: 5px;
+     color: #fff;
+     font-weight: bold;
+     font-size: 15px;
+     transition: 0.6s ease;
+     border-radius: 3px !important;
+     background: #000;
+}
+ .player-erro-wrapa .left {
+     cursor: pointer;
+     position: absolute;
+     top: 105%;
+     right: 50px;
+     width: auto;
+     padding: 15px;
+     margin-top: 5px;
+     color: #fff;
+     font-weight: bold;
+     font-size: 15px;
+     transition: 0.6s ease;
+     border-radius: 3px !important;
+     background: #000;
+}
+ @-webkit-keyframes fade {
+     from {
+         opacity: .4 
+    }
+     to {
+         opacity: 1 
+    }
+}
+ @keyframes fade {
+     from {
+         opacity: .4 
+    }
+     to {
+         opacity: 1 
+    }
+}

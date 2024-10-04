@@ -1,0 +1,388 @@
+<header th:fragment="admin-header" class="navbar navbar-expand-md header-menu-one p-0 bg-white shadow fixed-top">
+    <div class="nav-bar-header-one">
+        <div class="header-logo">
+            <a href="/">
+                <img class="eldt-logo" src="static/img/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="toggle-button sidebar-toggle">
+            <button type="button" class="item-link">
+                <span class="btn-icon-wrap"> <span></span> <span></span> <span></span></span>
+            </button>
+        </div>
+    </div>
+    <div class="d-md-none mobile-nav-bar">
+        <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse"
+                data-target="#mobile-navbar" aria-expanded="false">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <div class="header-main-menu collapse navbar-collapse justify-content-end" id="mobile-navbar">
+        <ul class="navbar-nav">
+            <li class="navbar-item dropdown header-admin">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                   aria-expanded="false">
+                    <div class="admin-img" id="profilePic">
+                        <img id="myImage" src="static/img/img_avatar.png">
+                    </div>
+                    <div class="admin-title">
+                        <h5 class="item-title" id="userNameSpan"></h5>
+                        <span></span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow">
+                    <div class="item-header">
+                        <h6 class="item-title text-left" id="userFullName"></h6>
+                    </div>
+                    <div class="item-content">
+                        <ul class="settings-list">
+                            <li><a href="javascript:void(0)" onclick="openSlide()"><i class="flaticon-user"></i>My
+                                Profile</a></li>
+                            <li><a href="javascript:void(0)" onclick="openCurtain()"><i
+                                    class="flaticon-gear-loading"></i>Change Password</a></li>
+                            <li><a href="javascript:void(0)" onclick="logout()"><i class="flaticon-turn-off"></i>Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-----------Profile Slide Content ------------->
+<section id="slideProfile" class="slide-cst">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSlide()">&times;</a>
+    <div class="slide-cst-content">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="dashboard-summery-one mb-0">
+                    <div class="prof-edit-pic mb-3">
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="text-center profile-pic position-relative">
+                                <div class="uploded-img" id="profile-pic-placeholder">
+                                    <img id="myImage2" src="static/img/img_avatar.png">
+                                </div>
+                                <label for="imageUpload" class="text-center d-block upd-prof">
+                                    <i class="fa fa-camera" aria-hidden="true"></i>
+                                </label>
+                            </div>
+                            <input type="file" name="profilePicUpload" id="imageUpload">
+                        </form>
+                        <p class="text-center small mt-3 mb-0">Update New Picture</p>
+                    </div>
+
+                    <div class="add-school pb-2">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 px-2">
+                                    <div class="form-group mb-3">
+                                        <input type="text" class="form-control" id="editProfileFirstName"
+                                               name="firstname"
+                                               placeholder="First Name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-2">
+                                    <div class="form-group mb-3">
+                                        <input type="text" class="form-control" id="editProfileLastName" name="lastname"
+                                               placeholder="Last Name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-2">
+                                    <div class="form-group mb-3">
+                                        <input type="email" class="form-control" id="editProfileEmail" name="email"
+                                               placeholder="Email ID" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-2">
+                                    <div class="form-group mb-3">
+                                        <input type="tel" class="form-control" id="editProfileMobile" name="contactNo"
+                                               placeholder="Phone No." maxlength="10" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 btn-dash text-center mt-1 px-2">
+                                    <button type="button" id="update-profile" class="btn btn-primary w-100 py-2">Update
+                                        Profile
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-----------Profile Slide Content ------------->
+
+<!-----------Change Password Content ------------->
+<section id="slidePassword" class="slide-cst">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeCurtain()">&times;</a>
+    <div class="slide-cst-content">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="dashboard-summery-one mb-0">
+                    <div class="add-school">
+                        <form id="#" method="post" enctype="multipart/form-data" action="#">
+                            <div class="row">
+                                <div class="col-md-12 pass-title text-center mb-3">
+                                    <h6 class="font-weight-normal"><i class="fa fa-lock" aria-hidden="true"></i> &nbsp;
+                                        Change Your Password</h6>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Current Password</label>
+                                        <input type="password" class="form-control" name="password"
+                                               id="inputOldPassword" placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">New Password</label>
+                                        <input type="password" class="form-control" name="new-password"
+                                               id="inputNewPassword" placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Re-enter New Password</label>
+                                        <input type="password" class="form-control" name="renew-password"
+                                               id="inputNewPassword2" placeholder="" required="">
+                                        <span class="mt-2 d-block" id="password-match"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="btn-dash text-center mt-2 pt-1">
+                                <button type="button" id="update-profile-pwd" class="btn btn-primary w-100 py-2">Change
+                                    Password
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-----------Change Password Content ------------->
+
+
+<!--------------- Slide Script ---------------->
+<script>
+function openSlide() {
+  document.getElementById("slideProfile").style.width = "100%";
+}
+
+function closeSlide() {
+  document.getElementById("slideProfile").style.width = "0%";
+}
+
+
+</script>
+
+<script>
+function openCurtain() {
+  document.getElementById("slidePassword").style.width = "100%";
+}
+
+function closeCurtain() {
+  document.getElementById("slidePassword").style.width = "0%";
+}
+
+
+</script>
+
+<!--------------- Slide Script ---------------->
+
+<script>
+
+ $(document).ready(function () {
+    var name = "";
+    var school = null;
+    if (!localStorage.getItem('access_token')) {
+        window.location.href = '/login';
+    }
+    getLoggedInUser();
+ });
+
+ function logout() {
+     localStorage.clear();
+     window.location.href = '/login';
+ }
+ function getLoggedInUser () {
+     let headers = null;
+     console.log("document loaded");
+     if (!headers) {
+         headers = {}
+     }
+         $.ajax({
+             url: url + "/me",
+             type: "GET",
+             dataSrc: 'responseData',
+             headers: {
+                 headers,
+                 Authorization: 'Bearer ' + localStorage.getItem('access_token')
+             },
+             success: function (res) {
+                 console.log(res);
+                 localStorage.setItem('username',res.firstName);
+                 localStorage.setItem('role',res.role);
+                 $('#userNameSpan').html(res.firstName ?? 'User Name');
+                 name = res.firstName +' '+ res.lastName;
+                 $('#fullName').html(name ?? 'full Name');
+                 $('#userFullName').text(name ?? 'full Name');
+                 $('#email').html(res.email ?? 'email');
+                 $('#mobile').html(res.mobile ?? 'mobile');
+
+                 school = res?.schoolId;
+                 console.log("School id :", school);
+
+
+                 document.getElementById('editProfileFirstName').value = res?.firstName;
+                 document.getElementById('editProfileLastName').value = res?.lastName;
+                 document.getElementById('editProfileEmail').value = res?.email;
+                 document.getElementById('editProfileMobile').value = res?.mobile;
+
+
+                if(res.imageUrl != null){
+                    $("#myImage, #myImage2").attr("src", res.imageUrl);
+                }
+
+             },
+         })
+
+ }
+
+
+     $(document).delegate('#update-profile', 'click', function () {
+        let headers = null;
+        const formData = {
+            firstName: document.getElementById('editProfileFirstName').value,
+            lastName: document.getElementById('editProfileLastName').value,
+            email: document.getElementById('editProfileEmail').value,
+            mobile: document.getElementById('editProfileMobile').value,
+        }
+
+        if (!headers) {
+            headers = {}
+        }
+        $.ajax({
+            url: url + `/profile`,
+            data: JSON.stringify(formData),
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (result) {
+                console.log("Result", result)
+            },
+            error: function () {
+                console.log("Error : ")
+            }
+        });
+    });
+
+    $('#inputNewPassword2').on('keyup', function() {
+        var password1 = $('#inputNewPassword').val();
+        var password2 = $('#inputNewPassword2').val();
+        if (password1 == password2) {
+          $('#password-match').html('Passwords match').css('color', 'green');
+          $('#update-profile-pwd').prop('disabled', false);
+        } else {
+        $('#update-profile-pwd').prop('disabled', true);
+          $('#password-match').html('Passwords do not match').css('color', 'red');
+        }
+      });
+
+    $(document).delegate('#update-profile-pwd', 'click', function () {
+        let headers = null;
+        const formData = {
+            newPassword: document.getElementById('inputNewPassword').value,
+            oldPassword: document.getElementById('inputOldPassword').value,
+        }
+
+        if (!headers) {
+            headers = {}
+        }
+        $.ajax({
+            url: url + `/change-password`,
+            data: JSON.stringify(formData),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (result) {
+                console.log("Result", result)
+            },
+            error: function () {
+                console.log("Error : ")
+            }
+        });
+    });
+
+
+    $('#imageUpload').on('change', function() {
+      let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        var formData = new FormData();
+        formData.append('file', $('#imageUpload')[0].files[0]);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: url + `/profile-upload`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log("SUCCESS : ",res);
+                getLoggedInUser();
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+            }
+        });
+      });
+
+
+
+</script>
+
+<!--------------- Loader Script ---------------->
+
+<script>
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+$(window).on('load', function(){
+  setTimeout(removeLoader, 3500); //wait for page load PLUS two seconds.
+});
+function removeLoader(){
+    $( "#loadingDiv" ).fadeOut(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight
+  });
+}
+
+
+</script>
+
+<!--------------- Loader Script ---------------->

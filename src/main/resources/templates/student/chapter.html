@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<script language="JavaScript" type="text/javascript" src="static/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="static/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="static/js/sprinkle.js"></script>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>-->
+    <!--    <script type="text/javascript"-->
+    <!--            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>-->
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+            <div class="mobile-sidebar-header d-md-none">
+                <div class="header-logo">
+                    <a href="student-dashboard.html">
+                        <img src="static/img/logo.png" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-menu-content chapter-drop">
+                <ul class="nav nav-sidebar-menu sidebar-toggle-view" id="root-list">
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link" onclick="getSectionList(1)">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">1</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub" id="list-1">
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link" onclick="getSectionList(2)">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">2</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub" id="list-2">
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link" onclick="getSectionList(3)">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">3</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub" id="list-3">
+
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link" onclick="getSectionList(4)">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">4</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub" id="list-4">
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link" onclick="getSectionList(5)">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">5</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub" id="list-5">
+
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold" id="chapter-id"></h3>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Dashboard summery Start Here -->
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-12 col-sm-6 col-12">
+                    <div class="dashboard-summery-one chapter-bg">
+                        <div class="chap-content col-11 mx-auto mb-2 pl-md-5">
+                            <div class="chap-title mt-2">
+                                <h1 id="title"><span class="chap-topic" id="index-number"></span></h1>
+                            </div>
+
+                            <div id="description-context">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chapter-nex-pre text-right mt-4">
+                        <button class="previous" onclick="change_chapter('Decrement')"> &laquo; Previous </button>
+                        <button class="next" id="nextId" onclick="change_chapter('Increment')"> Next &raquo; </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script>
+  var nextValue = 0
+  var previousValue = 0;
+$(document).ready(function () {
+
+     var sectionId = Number(getCookie('sectionId'))
+      console.log("Enter : ", sectionId);
+
+     if (sectionId == 0) {
+        getSectionDetails(1)
+     } else {
+        getSectionDetails(sectionId)
+     }
+
+ });
+
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 1; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function change_chapter (operation) {
+ var sectionId = Number(getCookie('sectionId'))
+    if(operation == 'Increment'){
+        sectionId = nextValue;
+    } else {
+        sectionId = previousValue;
+    }
+
+ console.log("===sectionId==========", sectionId)
+ console.log("=====operation========", operation)
+ getSectionDetails(sectionId);
+ document.cookie = `sectionId=${sectionId}`;
+}
+function getSectionList (chapterId) {
+     let headers = null;
+
+     if (!headers) {
+         headers = {}
+     }
+     $.ajax({
+         url: url + `/chapters/${chapterId}/section-list`,
+         type: "GET",
+         dataSrc: 'responseData',
+         headers: {
+             headers,
+             Authorization: 'Bearer ' + localStorage.getItem('access_token')
+         },
+         success: function (res) {
+             console.log(res.descriptionContext);
+             var selector = "#list-"+chapterId;
+            $(selector).empty();
+            res.forEach(function(item) {
+              $(selector).append(`<li class="nav-item"><a href="#" class="nav-link" onclick="getSectionDetails(`+item.id+`)"><i class="fa fa-angle-right"></i>`+item.index+` `+item.title+`</a></li>`);
+            });
+
+         },
+     })
+
+ }
+ function getSectionDetails (sectionId) {
+     let headers = null;
+     if (!headers) {
+         headers = {}
+     }
+     $.ajax({
+         url: url + `/sections/${sectionId}`,
+         type: "GET",
+         dataSrc: 'responseData',
+         headers: {
+             headers,
+             Authorization: 'Bearer ' + localStorage.getItem('access_token')
+         },
+         success: function (res) {
+             console.log("Response is here : ",res);
+             $("#title").text(res.indexNumber +" "+ res.title);
+             $("#chapter-id").text("Chapter No."+ res.chapterId);
+             $("#description-context").html(res.descriptionContext);
+            if(res.next !=0){
+                nextValue = res.next;
+                $('#nextId').prop('disabled', false);
+            }else{
+                $('#nextId').prop('disabled', false);
+            }
+
+            if(res.previous != 0){
+                previousValue = res.previous;
+                $('#previousId').prop('disabled', false);
+            }else{
+                $('#previousId').prop('disabled', true);
+            }
+
+            if ('speechSynthesis' in window) {
+  // Create a new instance of the SpeechSynthesisUtterance object
+  var utterance = new SpeechSynthesisUtterance();
+
+  // Set the text to be spoken
+  utterance.text = 'Hello, world!';
+
+  // Set the voice to use (optional)
+  var voices = window.speechSynthesis.getVoices();
+  utterance.voice = voices[0];
+
+  // Speak the text
+  window.speechSynthesis.speak(utterance);
+  console.log("close: ");
+}
+
+
+         },
+     })
+
+ }
+    $(document).on("mousedown", function(e) {
+      // Check if the user is attempting to select text
+      if (e.button === 0 && e.shiftKey) {
+        // If so, prevent the default behavior
+        e.preventDefault();
+      }
+    });
+$(document).on("selectstart", function(e) {
+  // Prevent text selection on the page
+  e.preventDefault();
+});
+$(document).on("contextmenu", function(e) {
+  // Prevent the default behavior of the right-click context menu
+  e.preventDefault();
+});
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+
+
+</body>
+
+</html>

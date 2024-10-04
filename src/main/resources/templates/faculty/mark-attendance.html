@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>
+
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/faculty-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcrumbs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold mb-2"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Fill
+                    Attendance</h3>
+                <p class="mb-0">Please mark student attendance for behind the wheel</p>
+            </div>
+            <div class="row gutters-20 mb-4">
+                <div class="col-md-6">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="add-school mt-2">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Student Name</label>
+                                            <select class="form-control" id="studentIds">
+                                                <option disabled selected>Select Student</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="inputDate" name="date" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Time In</label>
+                                            <input type="time" class="form-control" id="inputInTime" name="birthdate"
+                                                   placeholder=""
+                                                   required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Time Out</label>
+                                            <input type="time" class="form-control" id="inputOutTime" name="birthdate" placeholder="" required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Total Hrs</label>
+                                            <input type="text" id="totalHours" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-dash text-right mt-4">
+                                    <button type="reset" class="btn btn-primary bg-white border-white">Reset</button>
+                                    <button type="button" id="save" class="btn btn-primary ml-2">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+<script>
+    $(document).ready(function() {
+        getStudentList();
+    });
+
+    $('#inputOutTime').change(function(){
+        var inTime = document.getElementById('inputInTime').value;
+        var outTime = document.getElementById('inputOutTime').value;
+        diffHours(inTime, outTime);
+    });
+
+    function diffHours(inTime, outTime){
+        var startTime = new Date("01/01/2007 " + inTime);
+        var endTime = new Date("01/01/2007 " + outTime);
+
+        var diff =(endTime.getTime() - startTime.getTime()) / 1000;
+        diff /= (60 * 60);
+        var hourDiff= Math.abs(Math.round(diff)) + "hrs";
+
+<!--        var hourDiff = timeEnd - timeStart +" hrs";-->
+<!--        var hoursDiff = endTime.diff(startTime, 'hours');-->
+<!--        console.log('Hours:' + hoursDiff);-->
+
+        document.getElementById('totalHours').value = hourDiff;
+        console.log("Hours : ", hourDiff);
+    }
+
+    function myFunction(value, index, array) {
+        var option = $('<option/>');
+        var student = value.firstName + '('+value.permitNumber+')';
+        option.attr({ 'value': value.id }).text(student) ;
+        $('#studentIds').append(option);
+    }
+
+    function getStudentList(){
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        let school = localStorage.getItem('school_id');
+        $.ajax({
+            url: url + `/assigned/students`,
+            type: "GET",
+            dataSrc: 'responseData',
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                res.forEach(myFunction);
+            },
+        });
+    }
+
+    $(document).delegate('#save', 'click', function () {
+        let headers = null;
+        var students = $('#studentIds').val();
+
+        const formData = {
+            studentId: students,
+            date: document.getElementById('inputDate').value,
+            in: document.getElementById('inputInTime').value,
+            out: document.getElementById('inputOutTime').value
+        }
+        if (!headers) {
+            headers = {}
+        }
+        console.log('FormData',formData);
+        $.ajax({
+            url: url + `/faculty/mark-attendance`,
+            data: JSON.stringify(formData),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+
+            },
+        });
+    });
+
+
+</script>
+</body>
+
+</html>

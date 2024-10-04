@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+  <!-- Header Menu Area Start Here -->
+  <header th:replace="layouts/fragments/admin-header"></header>
+  <!-- Header Menu Area End Here -->
+  <!-- Page Area Start Here -->
+  <div class="dashboard-page-one">
+    <!-- Sidebar Area Start Here -->
+    <div th:replace="layouts/fragments/student-sidebar"></div>
+    <!-- Sidebar Area End Here -->
+    <div class="dashboard-content-one vh-100">
+      <!-- Breadcubs Area Start Here -->
+
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="breadcrumbs-area">
+          <h3 class="font-weight-bold mb-2"><i class="fa fa-trophy" aria-hidden="true"></i> Certificate</h3>
+          <p class="mb-0">Download ELDT certificate here...</p>
+        </div>
+
+        <div class="down-cert-btn pt-4">
+          <button type="button" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download Certificate</button>
+        </div>
+
+      </div>
+
+      <div class="row gutters-20 mb-4 mt-4">
+        <div class="certificate-body">
+          <img src="img/certificate.png" class="cert-bg">
+          <div class="cert-content">
+            <div class="certificate-logo">
+              <img src="img/logo.png" class="img-fluid">
+            </div>
+            <div>
+              <h1 class="example"><span class="char1" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-1px) translateY(83px) rotate(0deg);">C</span><span class="char2" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-3px) translateY(67px) rotate(0deg);">e</span><span class="char3" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-4px) translateY(55px) rotate(0deg);">r</span><span class="char4" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-5px) translateY(44px) rotate(0deg);">t</span><span class="char5" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-6px) translateY(37px) rotate(0deg);">i</span><span class="char6" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-6px) translateY(30px) rotate(0deg);">f</span><span class="char7" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-5px) translateY(23px) rotate(0deg);">i</span><span class="char8" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-5px) translateY(18px) rotate(0deg);">c</span><span class="char9" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-4px) translateY(11px) rotate(0deg);">a</span><span class="char10" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-4px) translateY(7px) rotate(0deg);">t</span><span class="char11" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-2px) translateY(3px) rotate(0deg);">e</span><span class="char12 empty" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(-1px) translateY(1px) rotate(0deg);">&nbsp;</span><span class="char13" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(0px) translateY(0px) rotate(0deg);">o</span><span class="char14" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(0px) translateY(0px) rotate(0deg);">f</span><span class="char15 empty" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(2px) translateY(1px) rotate(0deg);">&nbsp;</span><span class="char16" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(3px) translateY(5px) rotate(0deg);">C</span><span class="char17" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(4px) translateY(9px) rotate(0deg);">o</span><span class="char18" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(5px) translateY(17px) rotate(0deg);">m</span><span class="char19" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(6px) translateY(26px) rotate(0deg);">p</span><span class="char20" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(6px) translateY(33px) rotate(0deg);">l</span><span class="char21" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(5px) translateY(41px) rotate(0deg);">e</span><span class="char22" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(5px) translateY(51px) rotate(0deg);">t</span><span class="char23" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(4px) translateY(60px) rotate(0deg);">i</span><span class="char24" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(3px) translateY(70px) rotate(0deg);">o</span><span class="char25" style="display: inline-block; transition: none 0s ease 0s; transform: translateX(1px) translateY(84px) rotate(0deg);">n</span></h1>
+            </div>
+            <!--<h5> </h5>-->
+            <p class="student-name">ENTRY LEVEL DRIVER TRAINING - COURSE</p>
+            <p class="certify">
+              THIS IS TO CERTIFY THAT
+            </p>
+
+            <div class="certificate-content">
+              <h3>John Deo</h3>
+              <div class="">
+                <p class="topic-description">HAS SUCCESSFULLY COMPLETED THE ONLINE 'ENTRY LEVEL DRIVER TRAINING'
+                  <br>COURSE FOR CLASS A THEORY WITH A SCORE OF<span> 82%</span><br> THIS COURSE HAS BEEN APPROVED BY FMCSA</p>
+              </div>
+            </div>
+            <div class="certificate-footer">
+              <div class="row">
+                <div class="col-md-6 col-6">
+                  <div class="date_com">
+                    <span>2022-09-21</span><br>
+                    <p>COMPLETION DATE</p>
+                  </div>
+                </div>
+                <div class="col-md-6 col-6">
+                  <div class="date_com">
+                    <span>_______</span><br>
+                    <p>MANAGER, ELDT INC</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer-wrap-layout1 dash-fot">
+        <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+          Powered by <a href="#">Winggs</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Page Area End Here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+
+
+</body>
+
+</html>

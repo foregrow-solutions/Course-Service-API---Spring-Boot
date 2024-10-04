@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layouts/fragments/head"></head>
+<body>
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/admin-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcrumbs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold mb-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Question</h3>
+                <p class="mb-0">Fill the below details</p>
+            </div>
+            <div class="row gutters-20 mb-4">
+                <div class="col-md-8">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="add-school mt-2">
+                            <form id="#" method="post" enctype="multipart/form-data" action="#">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <input type="text" class="form-control" name="question" id="inputQuestion"
+                                                   placeholder="Add question here... " required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-check-input" name="radio" id="0" >
+                                            <label class="form-label ml-3 pl-1">First Answer</label>
+                                            <input type="text" class="form-control" name="answers[]" id="inputAnsOne"
+                                                   placeholder="Type answer..." required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-check-input" id="1" name="radio" checked>
+                                            <label class="form-label ml-3 pl-1">Second Answer</label>
+                                            <input type="text" class="form-control" name="answers[]" id="inputAnsTwo"
+                                                   placeholder="Type answer..." required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-check-input" id="2" name="radio">
+                                            <label class="form-label ml-3 pl-1">Third Answer</label>
+                                            <input type="text" class="form-control inputAnsThree" name="answers[]" id="inputAnsThree"
+                                                   placeholder="Type answer..." required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-check-input" id="3" name="radio">
+                                            <label class="form-label ml-3 pl-1">Fourth Answer</label>
+                                            <input type="text" class="form-control" name="answers[]" id="inputAnsFour"
+                                                   placeholder="Type answer..."
+                                                   required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="btn-dash text-right mt-3">
+                                    <button type="button" class="btn btn-primary" id="save">Submit</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+<script>
+    $(document).delegate('#save', 'click', function () {
+        let headers = null;
+
+
+        const answers = $("input[name='answers[]']");
+            let ar = []
+            var values = $("input[name='answers[]']")
+              .map(function(index, value ){
+              let hash = {};
+              console.log("*****value********", value.id)
+              console.log("*****index********", index)
+              console.log("*****istrue?***a*****", $(`#${index}`).prop("checked") )
+              hash['title'] = value.value;
+              hash['isTrue'] = $(`#${index}`).prop("checked");
+              ar.push(hash)
+                }).get();
+                console.log(ar,"-----------")
+
+        const formData = {
+            question: document.getElementById('inputQuestion').value,
+            answers: ar,
+        }
+
+        if (!headers) {
+            headers = {}
+        }
+
+        console.log('FormData',formData);
+        $.ajax({
+            url: url +'/admin/questions',
+            data: JSON.stringify(formData),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (result) {
+                console.log("Response is here : ", result);
+                $("form").trigger("reset");
+            },
+            error: function () {
+                console.log("Error : ")
+            }
+        });
+    });
+
+
+</script>
+</html>

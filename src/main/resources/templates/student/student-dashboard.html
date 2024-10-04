@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>
+
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/student-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold">My Profile</h3>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Dashboard summery Start Here -->
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="d-flex">
+                            <div class="item-icon bg-light-green abt-pic w-25">
+                                <img src="static/img/all-student.png" class="img-fluid">
+                            </div>
+                            <div class="item-title abt-me w-75 pl-md-3 mt-2">
+                                <div class="item-content">
+                                    <div class="item-title">Name</div>
+                                    <div class="item-number">
+                                        <span id="fullName"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-inf mt-4">
+                            <!--<p>Gender: <span><strong id="gender">Male</strong></span></p>-->
+                            <p>Email: <span><strong id="email"></strong></span></p>
+                            <p>Phone: <span><strong id="mobile"></strong></span></p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="item-icon bg-light-red">
+                                    <img src="static/img/notification.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item-content">
+                                    <div class="item-title">Notification</div>
+                                    <div class="item-number">
+                                        <span>12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="item-icon bg-light-blue">
+                                    <img src="static/img/calendar.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item-content">
+                                    <div class="item-title">Attendance</div>
+                                    <div class="item-number">
+                                        <span>94%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+
+</body>
+
+</html>

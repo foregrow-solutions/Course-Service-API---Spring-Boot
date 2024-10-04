@@ -1,0 +1,82 @@
+@charset "ISO-8859-1";
+ .StripeElement{
+     box-sizing: border-box;
+     height: 40px;
+     padding: 10px 12px;
+     border: 1px solid transparent;
+     border-radius: 4px;
+     background-color: white;
+     box-shadow: 0 1px 3px 0 #e6ebf1;
+     -webkit-transition: box-shadow 150ms ease;
+     transition: box-shadow 150ms ease;
+}
+ .StripeElement--focus{
+     box-shadow: 0 1px 3px 0 #cfd7df;
+}
+ .StripeElement--invalid{
+     border-color: #fa755a;
+}
+ .StripeElement--webkit-autofill{
+     background-color: #fefde5 !important;
+}
+ #rememberdiv{
+     display: block;
+     font-size: 15px;
+     margin-top: 20px;
+     position: relative;
+     color: #08a0da;
+}
+ #loader {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     background: rgba(0,0,0,0.75) url(../img/loader2.gif) no-repeat center center;
+     z-index: 10000;
+}
+ .text-danger{
+     color: #dc3545!important;
+     font-size: small;
+     font-family: monospace;
+}
+ .payment{
+     border:1px solid #f2f2f2;
+     height:280px;
+     border-radius:20px;
+     background:#fff;
+}
+ .payment_header{
+     background:rgb(13 45 80);
+     padding:20px;
+     border-radius:20px 20px 0px 0px;
+}
+ .check{
+     margin:0px auto;
+     width:50px;
+     height:50px;
+     border-radius:100%;
+     background:#fff;
+     text-align:center;
+}
+ .check i{
+     vertical-align:middle;
+     line-height:50px;
+     font-size:30px;
+}
+ .content{
+     text-align:center;
+     background: #4150941c;
+}
+ .content h1{
+     font-size:25px;
+     padding-top:25px;
+}
+ .content a:hover{
+     text-decoration:none;
+     background:#c9a704;
+     color: white;
+}
+ 

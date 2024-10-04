@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/school-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold mb-2"><i class="fa fa-list-ul" aria-hidden="true"></i> Faculty list</h3>
+                <p class="mb-0">See all faculty list below</p>
+            </div>
+
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-12 col-sm-12 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="dashboard-school mt-2">
+                            <div class="row">
+                                <div class="dash-sch-tit col-md-12">
+                                    <h5 class="card-title mb-1">All Faculty List</h5>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive pt-0">
+                                <table class="table table-bordered schools-list mb-0" id="facultyDatatable">
+                                    <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Name</th>
+                                        <th>Contact No.</th>
+                                        <th>Email ID</th>
+                                        <th>Licence No.</th>
+                                        <th>Total Experience</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+
+<!-- Edit Faculty Modal -->
+<div class="modal fade edit-chap-mod" id="editFacultyModal" tabindex="-1" aria-labelledby="editFacultyModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Faculty</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="add-school py-0 px-1">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editFirstName" class="form-label mb-1">First Name</label>
+                                    <input type="text" class="form-control" id="editFirstName" name="firstname" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editLastName" class="form-label mb-1">Last Name</label>
+                                    <input type="text" class="form-control" id="editLastName" name="lastname" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editGender" class="form-label mb-1">Gender</label>
+                                    <select class="form-control" name="Gender" id="editGender">
+                                        <option selected="true" disabled="disabled" value="">Select Gender</option>
+                                        <option value="MALE">Male</option>
+                                        <option value="FEMALE">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editEmail" class="form-label mb-1">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" name="email" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editMobile" class="form-label mb-1">Contact No.</label>
+                                    <input type="tel" class="form-control" id="editMobile" name="contactNo" placeholder="" maxlength="10" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editAddress" class="form-label mb-1">Address</label>
+                                    <input type="text" class="form-control" id="editAddress" name="address" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editLicenseNumber" class="form-label mb-1">License No.</label>
+                                    <input type="text" class="form-control" id="editLicenseNumber" name="licenseNo" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editExp" class="form-label mb-1">Total Experience (Min 2 years)</label>
+                                    <input type="number" class="form-control" id="editExp" name="experience" placeholder="" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="editLastCompanyName" class="form-label mb-1">Last Company Name</label>
+                                    <input type="text" class="form-control" id="editLastCompanyName" name="lastcompanyname" placeholder="" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-dash text-right mt-3">
+                            <button type="button" id="update" class="btn btn-primary ml-2">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit Faculty Modal -->
+
+<!-- Edit Upload Document Modal -->
+<div class="modal fade edit-chap-mod" id="uploadDocForm" tabindex="-1" aria-labelledby="uploadDocForm"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Upload Document</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="add-school py-0 px-1">
+                    <form id="#" method="post" enctype="multipart/form-data" action="#">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="upload-docm" id="uploadImagePlaceholder"></div>
+                                <div class="form-group">
+                                    <label for="editUploadPhoto" class="form-label d-block">Upload Your Photo</label>
+                                    <input type="file" id="editUploadPhoto" name="uploadPhoto" placeholder="" required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="upload-docm" id="uploadLicensePlaceholder"></div>
+                                <div class="form-group">
+                                    <label for="editUploadLicense" class="form-label d-block">Upload Your License </label>
+                                    <input type="file" id="editUploadLicense" name="licensePhoto" placeholder="" required="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="btn-dash text-right mt-3">
+                            <button type="button" id="upload" class="btn btn-primary ml-2">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit Upload Document Modal -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+<script src="static/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+      getSchoolFacilityList();
+    });
+
+    function getSchoolFacilityList(){
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        var t= $('#facultyDatatable').DataTable();
+        t.clear().draw();
+        $.ajax({
+            url: url + '/admin/schools/'+localStorage.getItem('school_id')+'/facility-list',
+            type: "GET",
+            dataSrc: 'responseData',
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#facultyDatatable').DataTable();
+                res.map( (response,index) => {
+                    console.log(response)
+                    t.row.add([index+1,response.firstName,response.mobile,response.email,response.licenseNumber,response.exp,'<button type="button" class="edit-btn" data-toggle="modal" id="' + response.id + '" onclick="getFacultyDetail(this)" data-target="#editFacultyModal"><i class="fa fa-pencil-square"\n' +
+                    '                                                                             aria-hidden="true"></i></button> &nbsp; <button type="button" class="edit-btn" data-toggle="modal" data-target="#uploadDocForm"><i class="fa fa-cloud-upload" aria-hidden="true" id="' + response.id + '" onclick="getFacultyDetail(this)"></i></button>']).draw(false)
+                })
+            },
+            columns: [
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+            ],
+        })
+    };
+
+        function getFacultyDetail(event) {
+            var id = event.id;
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+            $.ajax({
+                url: url + `/faculty/${id}`,
+                type: "GET",
+                dataSrc: 'responseData',
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (res) {
+                console.log("Given Faculty Details : ", res);
+                    facultyId = res?.id;
+                    document.getElementById('editFirstName').value = res?.firstName;
+                    document.getElementById('editLastName').value = res?.lastName;
+                    document.getElementById('editGender').value = res?.gender;
+                    document.getElementById('editEmail').value = res?.email;
+                    document.getElementById('editMobile').value = res?.mobile;
+                    document.getElementById('editAddress').value = res?.address;
+                    document.getElementById('editLicenseNumber').value = res?.licenseNumber;
+                    document.getElementById('editExp').value = res?.exp;
+                    document.getElementById('editLastCompanyName').value = res?.lastCompanyName;
+                }
+            });
+        }
+
+        $(document).delegate('#update', 'click', function () {
+          var id = facultyId;
+          let headers = null;
+            const formData = {
+                firstName: document.getElementById('editFirstName').value,
+                lastName: document.getElementById('editLastName').value,
+                name: document.getElementById('editGender').value,
+                email: document.getElementById('editEmail').value,
+                mobile: document.getElementById('editMobile').value,
+                address: document.getElementById('editAddress').value,
+                licenseNumber: document.getElementById('editLicenseNumber').value,
+                exp: document.getElementById('editExp').value,
+                lastCompanyName: document.getElementById('editLastCompanyName').value,
+            }
+
+            if (!headers) {
+                headers = {}
+            }
+
+            console.log('FormData',formData);
+            $.ajax({
+                url: url +`/admin/faculty/${id}`,
+                data: JSON.stringify(formData),
+                type: "PUT",
+                contentType: "application/json;charset=utf-8",
+                cache: false,
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (result) {
+                    getSchoolFacilityList();
+                },
+                error: function () {
+                    console.log("Error : ")
+                }
+            });
+        });
+
+
+    $('#editUploadLicense').on('change', function() {
+      let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        var formData = new FormData();
+        formData.append('type', "LICENSE");
+        formData.append('file', $('#editUploadLicense')[0].files[0]);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: url + `/faculty/${facultyId}/upload`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (imageUrl) {
+                console.log("SUCCESS : ", imageUrl);
+                 var img = $("<img>").attr("src", imageUrl);
+                $("#uploadLicensePlaceholder").append(img);
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+            }
+        });
+      });
+
+      $('#editUploadPhoto').on('change', function() {
+      let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        var formData = new FormData();
+        formData.append('type', "IMAGE");
+        formData.append('file', $('#editUploadPhoto')[0].files[0]);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: url + `/faculty/${facultyId}/upload`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (imageUrl) {
+                console.log("SUCCESS : ", imageUrl);
+                var img = $("<img>").attr("src", imageUrl);
+                $("#uploadImagePlaceholder").append(img);
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+            }
+        });
+      });
+
+</script>
+
+</body>
+
+</html>

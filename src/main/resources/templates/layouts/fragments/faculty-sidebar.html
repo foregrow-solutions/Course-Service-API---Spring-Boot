@@ -1,0 +1,39 @@
+<div th:fragment="faculty-sidebar" class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+    <div class="mobile-sidebar-header d-md-none">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="static/img/logo.png" alt="logo">
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-menu-content">
+        <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+            <li class="nav-item sidebar-nav-item">
+                <a href="/faculty-dashboard" class="nav-link">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/faculty-student" class="nav-link">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>All Students</span>
+                </a>
+            </li>
+
+            <li class="nav-item sidebar-nav-item">
+                <a href="/faculty-attendance" class="nav-link">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                    <span>Mark Attendence</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(function() {
+  $('.nav li a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('menu-active');
+});
+</script>

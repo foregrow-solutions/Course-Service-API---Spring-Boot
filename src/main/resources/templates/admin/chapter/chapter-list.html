@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="ELDT Training online - ELDT Inc">
+    <meta property="og:image" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="icon" href="/static/img/favicon.png">
+    <title>ELDT Training online - ELDT Inc</title>
+    <link rel="icon" href="/static/img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/env.js"></script>
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/admin-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="row m-0 pt-5">
+                <div class="breadcrumbs-area col-md-9 pt-0">
+                    <h3 class="font-weight-bold mb-2"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Chapter
+                    </h3>
+                </div>
+                <div class="sch-tab-search col-md-3 p-0">
+                    <label class="text-white mr-2"> Select Chapter</label>
+                    <select class="chp-topics-select" id="chooseChapter">
+                        <option value='1'>1 Chapter</option>
+                        <option value='2'>2 Chapter</option>
+                        <option value='3'>3 Chapter</option>
+                        <option value='4'>4 Chapter</option>
+                        <option value='5'>5 Chapter</option>
+                    </select>
+                    <!--<input class="dataTable-input w-100" placeholder="Search..." type="text">-->
+                </div>
+
+            </div>
+
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-12 col-sm-12 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="dashboard-school mt-2">
+                            <div class="row">
+                                <div class="dash-sch-tit col-md-12">
+                                    <h5 class="card-title mb-1">All Chapter List</h5>
+                                </div>
+                            </div>
+                            <div class="table-responsive pt-0">
+                                <table class="table table-bordered chapter-list mb-0" id="chapterList">
+                                    <thead>
+                                    <tr>
+                                        <th>S No.</th>
+                                        <th>Topic No.</th>
+                                        <th>Title</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                    </thead>
+                                    <!--                                    <tbody>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th>1</th>-->
+                                    <!--                                        <td>Orientation</td>-->
+                                    <!--                                        <td><a href="create-chapter.html"><i class="fa fa-pencil-square"-->
+                                    <!--                                                                             aria-hidden="true"></i></a> &nbsp;-->
+                                    <!--                                            <a href="#"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th>2</th>-->
+                                    <!--                                        <td>Control Systems / Dashboard</td>-->
+                                    <!--                                        <td><a href="create-chapter.html"><i class="fa fa-pencil-square"-->
+                                    <!--                                                                             aria-hidden="true"></i></a> &nbsp;-->
+                                    <!--                                            <a href="#"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th>3</th>-->
+                                    <!--                                        <td>Orientation</td>-->
+                                    <!--                                        <td><a href="create-chapter.html"><i class="fa fa-pencil-square"-->
+                                    <!--                                                                             aria-hidden="true"></i></a> &nbsp;-->
+                                    <!--                                            <a href="#"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a> </td>-->
+
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th>4</th>-->
+                                    <!--                                        <td>Control Systems / Dashboard</td>-->
+                                    <!--                                        <td><a href="create-chapter.html"><i class="fa fa-pencil-square"-->
+                                    <!--                                                                             aria-hidden="true"></i></a> &nbsp;-->
+                                    <!--                                            <a href="#"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th>5</th>-->
+                                    <!--                                        <td>Orientation</td>-->
+                                    <!--                                        <td><a href="/edit-chapter"><i class="fa fa-pencil-square"-->
+                                    <!--                                                                       aria-hidden="true"></i></a> &nbsp;-->
+                                    <!--                                            <a href="#"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    </tbody>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+
+<!-- Edit Chapter Modal -->
+<div class="modal fade edit-chap-mod" id="editChapterModal" tabindex="-1" aria-labelledby="editChapterModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Chapter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="add-school py-0 px-1">
+                    <form id="editChapterForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editChapterNumber" class="form-label mb-1">Chapter No.</label>
+                                    <input type="text" class="form-control" name="" id="editChapterNumber"
+                                           placeholder=""
+                                           required="" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-2">
+                                    <label for="editIndexNumber" class="form-label mb-1">Topic No.</label>
+                                    <input type="number" class="form-control" name="" id="editIndexNumber">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group mb-2">
+                                    <label for="editInputTitle" class="form-label mb-1">Title Name</label>
+                                    <input type="text" class="form-control" name="" id="editInputTitle" placeholder=""
+                                           required="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 custom-text-editor">
+                                <div class="form-group mb-1">
+                                    <label for="editDescription" class="mb-2 mt-0">Type Chapter Content Here...</label>
+                                    <textarea id="editDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-dash text-right mt-3">
+                            <button type="button" id="update" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit Chapter Modal -->
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
+<script src="static/vendor/summernote/summernote-bs4.min.js"></script>
+<script src="static/js/main.js"></script>
+
+<script>
+    var chapterId = 1;
+    var sectionId = null;
+
+    $(document).ready(function () {
+
+      getChapterSectionList(1);
+    });
+
+
+
+
+    $("#chooseChapter").change(function(){
+        const id = $(this).val();
+        chapterId = parseInt(id);
+        getChapterSectionList(chapterId);
+    });
+    function getChapterSectionList(chapterId){
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+        var t= $('#chapterList').DataTable();
+        t.clear().draw();
+        $.ajax({
+            url: url + '/admin/chapters/'+chapterId+'/sections',
+            type: "GET",
+            dataSrc: 'responseData',
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#chapterList').DataTable();
+                res.content.map( (response,index) => {
+                    console.log(response)
+                    t.row.add([index+1,response.indexNumber,response.title,'<button type="button" class="edit-btn" data-toggle="modal" data-target="#editChapterModal" id="' + response.id + '" onclick="getChapterSectionDetail(this)"><i class="fa fa-pencil-square"\n' +
+                    '                                                                             aria-hidden="true"></i></button> &nbsp;\n' +
+                    '                                            <i class="fa fa-trash text-danger" aria-hidden="true" id="' + response.id + '" onclick="deleteChapterSection(this)"></i>']).draw(false)
+                })
+            },
+            columns: [
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+            ],
+        })
+    };
+
+    function getChapterSectionDetail(event) {
+            var id = event.id;
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+            $.ajax({
+                url: url + `/admin/chapters/${chapterId}/sections/${id}`,
+                type: "GET",
+                dataSrc: 'responseData',
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (res) {
+                    sectionId = res?.id;
+                    document.getElementById('editChapterNumber').value = res?.chapterId;
+                    document.getElementById('editIndexNumber').value = res?.indexNumber;
+                    document.getElementById('editInputTitle').value = res?.title;
+                    $('#editDescription').summernote("code", res.descriptionContext);
+                }
+            });
+        }
+
+    $(document).delegate('#update', 'click', function () {
+        let headers = null;
+        var markupStr = $('#editDescription').summernote('code');
+
+        const formData = {
+            indexNumber: document.getElementById('editIndexNumber').value,
+            title: document.getElementById('editInputTitle').value,
+            descriptionContext: markupStr,
+        }
+
+        if (!headers) {
+            headers = {}
+        }
+
+        $.ajax({
+            url: url + `/admin/chapters/${chapterId}/sections/${sectionId}`,
+            data: JSON.stringify(formData),
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (result) {
+            console.log("Result", result)
+                $("form").trigger("reset");
+            },
+            error: function () {
+                console.log("Error : ")
+            }
+        });
+    });
+
+    function deleteChapterSection(event) {
+            id = event.id;
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+            $.ajax({
+                url: url + `/admin/sections/${id}`,
+                type: "DELETE",
+                dataSrc: 'responseData',
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (res) {
+                    getChapterSectionList(chapterId);
+                }
+            });
+        }
+
+
+
+
+</script>
+</body>
+</html>

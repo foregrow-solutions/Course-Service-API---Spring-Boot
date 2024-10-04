@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+  <!-- Header Menu Area Start Here -->
+  <header th:replace="layouts/fragments/admin-header"></header>
+  <!-- Header Menu Area End Here -->
+  <!-- Page Area Start Here -->
+  <div class="dashboard-page-one">
+    <!-- Sidebar Area Start Here -->
+    <div th:replace="layouts/fragments/faculty-sidebar"></div>
+    <!-- Sidebar Area End Here -->
+    <div class="dashboard-content-one vh-100">
+      <!-- Breadcubs Area Start Here -->
+      <div class="breadcrumbs-area">
+        <h3 class="font-weight-bold">My Profile</h3>
+      </div>
+      <!-- Breadcubs Area End Here -->
+      <!-- Dashboard summery Start Here -->
+      <div class="row gutters-20 mb-4">
+        <div class="col-xl-4 col-sm-4 col-12">
+          <div class="dashboard-summery-one mg-b-20">
+            <div class="d-flex">
+              <div class="item-icon bg-light-green abt-pic w-25">
+                <img src="static/img/all-student.png" class="img-fluid">
+              </div>
+              <div class="item-title abt-me w-75 pl-md-3 mt-2">
+                <div class="item-content">
+                  <div class="item-title">Name</div>
+                  <div class="item-number">
+                    <span id="fullName"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-inf mt-4">
+              <p>Email: <span><strong id="email"></strong></span></p>
+              <p>Phone: <span><strong id="mobile"></strong></span></p>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="col-xl-4 col-sm-4 col-12">
+          <div class="dashboard-summery-one mg-b-20">
+            <div class="row align-items-center">
+              <div class="col-4">
+                <div class="item-icon bg-light-red">
+                  <img src="static/img/reading-book.png" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="item-content">
+                  <div class="item-title">Total Assigned Students</div>
+                  <div class="item-number">
+                    <span id="total">35</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row gutters-20 mb-4">
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="dashboard-summery-one mg-b-20">
+            <div class="dashboard-school mt-2">
+              <div class="row">
+                <div class="dash-sch-tit col-md-12">
+                  <h5 class="card-title mb-1">Assigned Students List</h5>
+                </div>
+              </div>
+
+              <div class="table-responsive pt-0">
+                <table class="table table-bordered schools-list mb-0" id="studentTable">
+                  <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Contact No.</th>
+                    <th>Permit No.</th>
+                    <th>Email ID</th>
+                    <th>Attendance</th>
+                  </tr>
+                  </thead>
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer-wrap-layout1 dash-fot">
+        <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+          Powered by <a href="#">Winggs</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Page Area End Here -->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+<script>
+ $(document).ready(function () {
+    getStudentList();
+    getStudentCount();
+ });
+function getStudentCount () {
+  let headers = null;
+  console.log("document loaded");
+  if (!headers) {
+    headers = {}
+  }
+  $.ajax({
+    url: url + `/students/count`,
+    type: "GET",
+    dataSrc: 'responseData',
+    headers: {
+    headers,
+      Authorization: 'Bearer ' + localStorage.getItem('access_token')
+    },
+    success: function (res) {
+      console.log(res);
+      $("#total").text(res.total);
+    },
+  })
+}
+
+	function getStudentList(){
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        $.ajax({
+            url: url + '/assigned/students',
+            type: "GET",
+            dataSrc: 'responseData',
+             headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#studentTable').DataTable();
+                res.map((response,index) => {
+                    t.row.add([index+1,response.firstName,response.mobile, response.permitNumber,response.email,response.fee,'<a href="edit-school/' + response.id + '"><i class="fa fa-pencil-square aria-hidden="true"></i></a>']).draw(false)
+                })
+            },
+             columns: [
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+             ],
+        });
+    };
+
+</script>
+
+</html>

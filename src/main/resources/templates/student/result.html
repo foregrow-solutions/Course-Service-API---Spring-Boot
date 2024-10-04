@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layouts/fragments/head"></head>
+<body id="page-top">
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/student-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcrumbs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold mb-2"><i class="fa fa-pie-chart" aria-hidden="true"></i> Result</h3>
+                <p class="mb-0">See the all test result below...</p>
+            </div>
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-12 col-sm-12 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="dashboard-school mt-2">
+                            <div class="row">
+                                <div class="dash-sch-tit col-md-12">
+                                    <h5 class="card-title mb-1">All Test Results</h5>
+                                </div>
+                            </div>
+                            <div class="table-responsive pt-0">
+                                <table class="table table-bordered result-list mb-0" id="resultTable">
+                                    <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Course</th>
+                                        <th>Percentage(%)</th>
+                                        <th>Result</th>
+                                        <th>Completed On</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <!--                                    <tbody>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">1</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>85%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>11-07-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">2</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>75%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>10-07-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">3</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>35%</td>-->
+                                    <!--                                        <td class="text-danger">Fail</td>-->
+                                    <!--                                        <td>05-07-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">4</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>72%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>03-07-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">5</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>28%</td>-->
+                                    <!--                                        <td class="text-danger">Fail</td>-->
+                                    <!--                                        <td>28-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">6</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>85%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>25-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">7</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>55%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>20-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">8</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>65%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>15-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">9</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>25%</td>-->
+                                    <!--                                        <td class="text-danger">Fail</td>-->
+                                    <!--                                        <td>12-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th scope="row">10</th>-->
+                                    <!--                                        <td>ELDT</td>-->
+                                    <!--                                        <td>55%</td>-->
+                                    <!--                                        <td class="text-success">Pass</td>-->
+                                    <!--                                        <td>10-06-2022</td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    </tbody>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<!-- Download Certificate Modal -->
+<div class="modal fade edit-chap-mod" id="paymentModal" tabindex="-1" aria-labelledby="paymentModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Payment Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="add-school py-0 px-1">
+                    <div class="row">
+                        <div id="paymentFormId" class="col-lg-12 mx-auto">
+                            <p>Download your certificate by providing your payment details</p>
+                            <div class="card">
+                                <div class="card-header">
+                                    <form method="post" enctype="multipart/form-data" action="#">
+                                        <div class="form-group">
+                                            <label><h6>Card Owner</h6></label>
+                                            <input type="text" id="" name="username" placeholder="Card Owner Name"
+                                                   required class="form-control ">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label><h6>Card number</h6></label>
+                                            <div class="input-group">
+                                                <input type="text" id="inputCardNumber" name="cardNumber"
+                                                       placeholder="Valid card number" class="form-control " required>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text text-muted">
+                                                    <i class="fa fa-cc-visa mx-1"></i>
+                                                    <i class="fa fa-cc-mastercard mx-1"></i>
+                                                    <i class="fa fa-cc-amex mx-1"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label><span
+                                                            class="hidden-xs"><h6>Expiration Date</h6></span></label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="inputMonth" placeholder="MM" name=""
+                                                               class="form-control" required>
+                                                        <input type="number" id="inputYear" placeholder="YY" name=""
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-4">
+                                                    <label><h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                                    </label>
+                                                    <input id="inputCsv" type="text" required class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="btn-dash col-12 mb-2">
+                                                <button type="button" id="payNowButton"
+                                                        class="btn btn-primary font-weight-bold w-100 py-2">Pay $25
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:none" id="thankId" class="col-md-12 thankpayment text-center pt-4 pb-2">
+                            <div class="thn-icon mb-3">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="thn-content mb-4">
+                                <h2>Thank You!</h2>
+                                <p>Your payment has been successful</p>
+                            </div>
+
+                            <div class="thn-btn btn-dash">
+                                <button type="button" id="download-certificate"
+                                        class="btn btn-primary font-weight-bold w-100 py-2">Download Certificate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Download Certificate Modal -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+<script>
+      $(document).ready(function () {
+      var score = "";
+      var date = "";
+          getResultList();
+       });
+
+       $('table td').click(function() {
+        var cellValue = $(this).text();
+        console.log(cellValue);
+      });
+
+        	function getResultList(){
+              let headers = null;
+              if (!headers) {
+                  headers = {}
+              }
+              $.ajax({
+                  url: url + '/result',
+                  type: "GET",
+                  dataSrc: 'responseData',
+                   headers: {
+                      headers,
+                      Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                  },
+                  success: function (res) {
+                      let t= $('#resultTable').DataTable();
+                      res.map((response,index) => {
+                      var customBtn = '';
+                      if(school == null){
+                        customBtn='<button type="button" class="edit-btn" data-toggle="modal" data-target="#paymentModal" id="' + response.id + '" onclick="getResult(this)"><i class="fa fa-cloud-download" aria-hidden="true"></i></button>';
+                      }else{
+                        customBtn = '<button type="button" class="edit-btn" id="' + response.id + '" onclick="getResult(this)"><i class="fa fa-cloud-download" aria-hidden="true"></i></button>';
+                      }
+                          t.row.add([index+1,"ELDT",response.score,response.result, response.createdDate, customBtn]).draw(false)
+                      })
+                  },
+                   columns: [
+                      { data: 'Public Id' },
+                      { data: 'Public Id' },
+                      { data: 'First Name' },
+                      { data: 'First Name' },
+                      { data: 'First Name' },
+                      { data: 'Email' }
+                   ],
+              });
+          };
+      function getResult(event){
+            var id = event.id;
+          let headers = null;
+          if (!headers) {
+              headers = {}
+          }
+          $.ajax({
+              url: url + `/results/${id}`,
+              type: "GET",
+              dataSrc: 'responseData',
+               headers: {
+                  headers,
+                  Authorization: 'Bearer ' + localStorage.getItem('access_token')
+              },
+              success: function (res) {
+                   score = res.score + "%";
+                   date = res.createdDate;
+
+                   if(school!=null){
+                        $('#download-certificate').click();
+                   }
+              },
+              error: function (error) {
+                console.log("Error : ",error)
+                }
+
+          });
+      };
+
+
+    $(document).delegate('#payNowButton', 'click', function () {
+        let headers = null;
+
+        const formData = {
+            cardNumber: $('#inputCardNumber').val(),
+            expMonth: $('#inputMonth').val(),
+            expYear: $('#inputYear').val(),
+            csv: $('#inputCsv').val(),
+            price: 25
+        }
+        if (!headers) {
+            headers = {}
+        }
+        console.log("Payload : " + formData);
+        $.ajax({
+            url: url + `/payment`,
+            data: JSON.stringify(formData),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (result) {
+                $("form").trigger("reset");
+
+                $('#paymentFormId').css('display', 'none');
+                $('#thankId').css('display', 'block');
+            },
+            error: function (error) {
+                console.log("Error : ",error)
+            }
+        });
+    });
+
+    $(document).delegate('#download-certificate', 'click', function () {
+        var fileName = name.replace(/\s+/g, "-");
+        var e = document.getElementById("fileType");
+
+        let headers = null;
+        const formData = {
+            student_name: name,
+            student_score: score,
+            completion_date: date,
+        }
+        if (!headers) {
+            headers = {}
+        }
+        $.ajax({
+
+            url: url + "/certificate/generate",
+            data: JSON.stringify(formData),
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            cache: false,
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+                headers,
+            },
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data) {
+                console.log("Data :", data)
+                const a = document.createElement('a');
+                const _url = window.URL.createObjectURL(data);
+                a.href = _url;
+                a.download = `${fileName}-certificate.pdf`;
+                document.body.append(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+            },
+            error: function (error) {
+                console.log("Errors : ", error)
+            }
+        });
+    });
+
+
+</script>
+<script src="static/js/main.js"></script>
+
+
+</body>
+</html>

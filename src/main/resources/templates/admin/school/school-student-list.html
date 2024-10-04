@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta property="og:title" content="">
+		<meta property="og:image" content="">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="icon" href="img/favicon.png">
+		<title>E-CDL || Dashboard</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper bg-ash">
+			<!-- Header Menu Area Start Here -->
+			<header class="navbar navbar-expand-md header-menu-one p-0 bg-white shadow fixed-top">
+				<div class="nav-bar-header-one">
+					<div class="header-logo">
+						<a href="index.html">
+						<img class="eldt-logo" src="img/logo.png" alt="logo">
+						</a>
+					</div>
+					<div class="toggle-button sidebar-toggle">
+						<button type="button" class="item-link">
+						<span class="btn-icon-wrap"> <span></span> <span></span> <span></span></span>
+						</button>
+					</div>
+				</div>
+				<div class="d-md-none mobile-nav-bar">
+					<button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+					<i class="far fa-arrow-alt-circle-down"></i>
+					</button>
+					<button type="button" class="navbar-toggler sidebar-toggle-mobile">
+					<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<div class="header-main-menu collapse navbar-collapse justify-content-end" id="mobile-navbar">
+					<ul class="navbar-nav">
+						<li class="navbar-item dropdown header-admin">
+							<a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+								<div class="admin-img">
+									<img src="img/admin.png" style="height:27px;width:30px;" alt="Admin">
+								</div>
+								<div class="admin-title">
+									<h5 class="item-title">John Deo</h5>
+									<span></span>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right shadow">
+								<div class="item-header">
+									<h6 class="item-title text-left">John Deo</h6>
+								</div>
+								<div class="item-content">
+									<ul class="settings-list">
+										<li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
+										<li><a href="#"><i class="flaticon-gear-loading"></i>Change Password</a></li>
+										<li><a href="#"><i class="flaticon-turn-off"></i>Log Out</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<!-- Header Menu Area End Here -->
+			<!-- Page Area Start Here -->
+			<div class="dashboard-page-one">
+				<!-- Sidebar Area Start Here -->
+				<div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+					<div class="mobile-sidebar-header d-md-none">
+						<div class="header-logo">
+							<a href="index.html">
+							<img src="img/logo.png" alt="logo">
+							</a>
+						</div>
+					</div>
+					<div class="sidebar-menu-content">
+						<ul class="nav nav-sidebar-menu sidebar-toggle-view">
+							<li class="nav-item sidebar-nav-item">
+								<a href="admin-dashboard.html" class="nav-link menu-active">
+								<i class="fa fa-tachometer"></i>
+								<span>Dashboard</span>
+								</a>
+							</li>
+							<li class="nav-item sidebar-nav-item">
+								<a href="#" class="nav-link">
+								<i class="fa fa-graduation-cap" aria-hidden="true"></i><span>Courses</span>
+								<i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+								</a>
+								<ul class="nav sub-group-menu menu-open" style="height: auto">
+									<li class="nav-item">
+										<a href="create-chapter.html" class="nav-link">
+										<i class="fa fa-angle-right"></i>Create Chapter
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="edit-chapter.html" class="nav-link">
+										<i class="fa fa-angle-right"></i>Edit Chapter
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item sidebar-nav-item">
+								<a href="add-school.html" class="nav-link">
+								<i class="fa fa-university" aria-hidden="true"></i>
+								<span>Add School</span>
+								</a>
+							</li>
+							<li class="nav-item sidebar-nav-item">
+								<a href="student-list.html" class="nav-link">
+								<i class="fa fa-users" aria-hidden="true"></i>
+								<span>Student List</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- Sidebar Area End Here -->
+				<div class="dashboard-content-one vh-100">
+					<!-- Breadcubs Area Start Here -->
+					<div class="breadcrumbs-area">
+						<h3 class="font-weight-bold mb-2"> Stamford Raffles</h3>
+						<p class="mb-0">Dallas, TX, USA</p>
+					</div>
+					
+					<div class="row gutters-20 mb-4">
+						<div class="col-xl-12 col-sm-12 col-12">
+							<div class="dashboard-summery-one mg-b-20">
+								<div class="dashboard-school mt-2">
+								
+									<div class="row">
+										<div class="dash-sch-tit col-md-9">
+											<h5 class="card-title mb-1">All Students List</h5>
+											<p>Showing 1 to 10 Entries</p>
+										</div>
+										<div class="sch-tab-search col-md-3">
+											<input class="dataTable-input w-100" placeholder="Search..." type="text">
+										</div>
+									</div>
+									
+									
+									<div class="table-responsive pt-0">
+									<table class="table table-bordered students-list mb-0" id="studentListTable">
+										<thead>
+											<tr>
+												<th>S.No</th>
+												<th>Name</th>
+												<th>Contact No.</th>
+												<th>Permit No.</th>
+												<th>Email ID</th>
+												<th>Fees</th>
+												
+											</tr>
+										</thead>
+									</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<footer class="footer-wrap-layout1 dash-fot">
+						<div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+							Powered by <a href="#">Winggs</a>
+						</div>
+					</footer>
+				</div>
+			</div>
+			<!-- Page Area End Here -->
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
+		<script src="static/js/main.js"></script>
+		<script>
+	$(document).ready(function () {
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        $.ajax({
+            url: url + '/admin/schools/'+localStorage.getItem('school_id')+'/students',
+            type: "GET",
+            dataSrc: 'responseData',
+             headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#studentListTable').DataTable();
+                res.content.map((response,index) => {
+
+                    t.row.add([index+1,response.firstName, response.mobile, response.permitNumber,response.email,response.fee,'<a href="edit-school/' + response.id + '"><i class="fa fa-pencil-square aria-hidden="true"></i></a>']).draw(false)
+                })
+            },
+             columns: [
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+             ],
+        });
+    });
+</script>
+	</body>
+</html>

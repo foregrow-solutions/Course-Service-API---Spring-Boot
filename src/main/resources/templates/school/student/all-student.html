@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+  <!-- Header Menu Area Start Here -->
+  <header th:replace="layouts/fragments/admin-header"></header>
+  <!-- Header Menu Area End Here -->
+  <!-- Page Area Start Here -->
+  <div class="dashboard-page-one">
+    <!-- Sidebar Area Start Here -->
+    <div th:replace="layouts/fragments/school-sidebar"></div>
+    <!-- Sidebar Area End Here -->
+    <div class="dashboard-content-one vh-100">
+      <!-- Breadcubs Area Start Here -->
+      <div class="breadcrumbs-area">
+        <h3 class="font-weight-bold mb-2"><i class="fa fa-list-ul" aria-hidden="true"></i> Students list</h3>
+        <p class="mb-0">See all students list below</p>
+      </div>
+
+      <div class="row gutters-20 mb-4">
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="dashboard-summery-one mg-b-20">
+            <div class="dashboard-school mt-2">
+              <div class="row">
+                <div class="dash-sch-tit col-md-12">
+                  <h5 class="card-title mb-1">All Students List</h5>
+                </div>
+              </div>
+
+              <div class="table-responsive pt-0">
+                <table class="table table-bordered schools-list mb-0" id="studentListTable">
+                  <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Contact No.</th>
+                    <th>Permit No.</th>
+                    <th>Email ID</th>
+                    <th>Fees</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="footer-wrap-layout1 dash-fot">
+        <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+          Powered by <a href="#">Winggs</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Page Area End Here -->
+</div>
+
+
+<!-- Edit Student Modal -->
+<div class="modal fade edit-chap-mod" id="editStudentModal" tabindex="-1" aria-labelledby="editStudentModal"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="add-school py-0 px-1">
+          <form id="editStudentForm" method="post" enctype="multipart/form-data" action="#">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editFirstName" class="form-label mb-1">First Name</label>
+                  <input type="text" class="form-control" name="firstname" id="editFirstName"
+                         placeholder="" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editLastName" class="form-label mb-1">Last Name</label>
+                  <input type="text" class="form-control" name="lastname" id="editLastName"
+                         placeholder="" required="">
+                  <span id="emailformat"> </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editEmail" class="form-label mb-1">Email</label>
+                  <input type="email" class="form-control" name="email" id="editEmail"
+                         placeholder="" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editMobile" class="form-label mb-1">Contact No.</label>
+                  <input type="tel" class="form-control" name="contactNo" id="editMobile"
+                         placeholder="" maxlength="10" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editGender" class="form-label mb-1">Gender</label>
+                  <select class="form-control" name="Gender" id="editGender">
+                    <option selected="true" disabled="disabled" value="">Select Gender
+                    </option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editDob" class="form-label mb-1">Date of Birth</label>
+                  <input type="date" class="form-control" name="birthdate" id="editDob"
+                         placeholder="" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editPermitNumber" class="form-label mb-1">Permit No.</label>
+                  <input type="text" class="form-control" name="permitNo"
+                         id="editPermitNumber" placeholder="" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editFee" class="form-label mb-1">Student Fees</label>
+                  <input type="number" class="form-control" id="editFee" placeholder=""
+                         required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="editAddress" class="form-label mb-1">Address</label>
+                  <input type="text" class="form-control" id="editAddress" name="address" placeholder=""
+                         required="">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="btn-dash text-right mt-3">
+              <button type="button" id="update" class="btn btn-primary ml-2">Save</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edit Student Modal -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+<script src="static/js/main.js"></script>
+<script>
+	$(document).ready(function () {
+	  var studentId = null;
+	  getStudentList();
+	});
+	function getStudentList () {
+        let headers = null;
+        if (!headers) {
+            headers = {}
+        }
+        let t= $('#studentListTable').DataTable();
+        t.clear();
+
+        $.ajax({
+            url: url + '/admin/schools/'+localStorage.getItem('school_id')+'/students',
+            type: "GET",
+            dataSrc: 'responseData',
+             headers: {
+                headers,
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            success: function (res) {
+                console.log(res);
+                let t= $('#studentListTable').DataTable();
+                res.content.map((response,index) => {
+                    console.log(response)
+                    t.row.add([index+1,response.firstName, response.mobile, response.permitNumber,response.email,response.fee,'<button type="button" class="edit-btn" data-toggle="modal" data-target="#editStudentModal" id="' + response.id + '" onclick="getStudentDetail(this)"><i class="fa fa-pencil-square aria-hidden="true"></i></button>']).draw(false)
+                })
+            },
+             columns: [
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'Public Id' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'First Name' },
+                { data: 'Email' }
+             ],
+        });
+    };
+
+  function formatDate(date) {
+    var d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+    function getStudentDetail(event) {
+            var id = event.id;
+            let headers = null;
+            if (!headers) {
+                headers = {}
+            }
+            $.ajax({
+                url: url + `/students/${id}`,
+                type: "GET",
+                dataSrc: 'responseData',
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (res) {
+                    console.log("Student Details : ", res)
+                    studentId = res?.id;
+                    $('#editFirstName').val(res?.firstName);
+                    $('#editLastName').val(res?.lastName);
+                    $('#editEmail').val(res?.email);
+                    document.getElementById('editMobile').value = res?.mobile;
+                    document.getElementById('editGender').value = res?.gender;
+                    document.getElementById('editDob').value = formatDate(res.dob);
+                    document.getElementById('editPermitNumber').value = res?.permitNumber;
+                    document.getElementById('editFee').value = res?.fee;
+                    document.getElementById('editAddress').value = res?.address;
+
+                }
+            });
+        }
+
+        $(document).delegate('#update', 'click', function () {
+          var schoolId = localStorage.getItem('school_id');
+          let headers = null;
+            const formData = {
+              firstName: document.getElementById('editFirstName').value,
+              lastName: document.getElementById('editLastName').value,
+              email: document.getElementById('editEmail').value,
+              mobile: document.getElementById('editMobile').value,
+              gender: document.getElementById('editGender').value,
+              permitNumber: document.getElementById('editPermitNumber').value,
+              fee: document.getElementById('editFee').value,
+              dob: document.getElementById('editDob').value,
+              address: document.getElementById('editAddress').value,
+            }
+
+            if (!headers) {
+                headers = {}
+            }
+
+            console.log('FormData',formData);
+            $.ajax({
+                url: url +`/schools/${schoolId}/students/${studentId}`,
+                data: JSON.stringify(formData),
+                type: "PUT",
+                contentType: "application/json;charset=utf-8",
+                cache: false,
+                headers: {
+                    headers,
+                    Authorization: 'Bearer ' + localStorage.getItem('access_token')
+                },
+                success: function (result) {
+                $("form").trigger("reset");
+                getStudentList();
+                },
+                error: function () {
+                    console.log("Error : ")
+                }
+            });
+             e.preventDefault();
+        });
+</script>
+
+
+</body>
+
+</html>

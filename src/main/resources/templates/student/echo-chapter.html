@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<script language="JavaScript" type="text/javascript" src="static/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="static/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="static/js/sprinkle.js"></script>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>-->
+    <!--    <script type="text/javascript"-->
+    <!--            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>-->
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+            <div class="mobile-sidebar-header d-md-none">
+                <div class="header-logo">
+                    <a href="student-dashboard.html">
+                        <img src="static/img/logo.png" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-menu-content chapter-drop">
+                <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">1</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub"  onclick="getSectionList(1)" id="list">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,1)">
+                                    <i class="fa fa-angle-right"></i>1.1 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,2)">
+                                    <i class="fa fa-angle-right"></i>1.2 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,3)">
+                                    <i class="fa fa-angle-right"></i>1.3 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,4)">
+                                    <i class="fa fa-angle-right"></i>1.4 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,5)">
+                                    <i class="fa fa-angle-right"></i>1.5 Orientation
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,6)">
+                                    <i class="fa fa-angle-right"></i>1.6 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,7)">
+                                    <i class="fa fa-angle-right"></i>1.7 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,8)">
+                                    <i class="fa fa-angle-right"></i>1.8 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,9)">
+                                    <i class="fa fa-angle-right"></i>1.9 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,10)">
+                                    <i class="fa fa-angle-right"></i>1.10 Orientation
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">2</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,1)">
+                                    <i class="fa fa-angle-right"></i>2.1 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,2)">
+                                    <i class="fa fa-angle-right"></i>2.2 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,3)">
+                                    <i class="fa fa-angle-right"></i>2.3 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,4)">
+                                    <i class="fa fa-angle-right"></i>2.4 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,5)">
+                                    <i class="fa fa-angle-right"></i>2.5 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,6)">
+                                    <i class="fa fa-angle-right"></i>2.6 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,7)">
+                                    <i class="fa fa-angle-right"></i>2.7 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,8)">
+                                    <i class="fa fa-angle-right"></i>2.8 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,9)">
+                                    <i class="fa fa-angle-right"></i>2.9 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(2,10)">
+                                    <i class="fa fa-angle-right"></i>2.10 Orientation
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">3</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,1)">
+                                    <i class="fa fa-angle-right"></i>3.1 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,2)">
+                                    <i class="fa fa-angle-right"></i>3.2 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,3)">
+                                    <i class="fa fa-angle-right"></i>3.3 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,4)">
+                                    <i class="fa fa-angle-right"></i>3.4 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,5)">
+                                    <i class="fa fa-angle-right"></i>3.5 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,6)">
+                                    <i class="fa fa-angle-right"></i>3.6 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,7)">
+                                    <i class="fa fa-angle-right"></i>3.7 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,8)">
+                                    <i class="fa fa-angle-right"></i>3.8 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,9)">
+                                    <i class="fa fa-angle-right"></i>3.9 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(3,10)">
+                                    <i class="fa fa-angle-right"></i>3.10 Orientation
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">4</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,1)">
+                                    <i class="fa fa-angle-right"></i>4.1 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,2)">
+                                    <i class="fa fa-angle-right"></i>4.2 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,3)">
+                                    <i class="fa fa-angle-right"></i>4.3 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,4)">
+                                    <i class="fa fa-angle-right"></i>4.4 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,5)">
+                                    <i class="fa fa-angle-right"></i>4.5 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,6)">
+                                    <i class="fa fa-angle-right"></i>4.6 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,7)">
+                                    <i class="fa fa-angle-right"></i>4.7 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,8)">
+                                    <i class="fa fa-angle-right"></i>4.8 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,9)">
+                                    <i class="fa fa-angle-right"></i>4.9 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(4,10)">
+                                    <i class="fa fa-angle-right"></i>4.10 Orientation
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i><span>Chapter <span
+                                class="chap-higl">5</span></span>
+                            <i class="fa fa-angle-down float-right" aria-hidden="true"></i>
+                        </a>
+                        <ul class="nav sub-group-menu menu-open chapter-drop-sub">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,1)">
+                                    <i class="fa fa-angle-right"></i>5.1 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,2)">
+                                    <i class="fa fa-angle-right"></i>5.2 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,3)">
+                                    <i class="fa fa-angle-right"></i>5.3 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,4)">
+                                    <i class="fa fa-angle-right"></i>5.4 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,5)">
+                                    <i class="fa fa-angle-right"></i>5.5 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,6)">
+                                    <i class="fa fa-angle-right"></i>5.6 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,7)">
+                                    <i class="fa fa-angle-right"></i>5.7 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,8)">
+                                    <i class="fa fa-angle-right"></i>5.8 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,9)">
+                                    <i class="fa fa-angle-right"></i>5.9 Orientation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(5,10)">
+                                    <i class="fa fa-angle-right"></i>5.10 Orientation
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <div class="chapter">
+                <h2 class="chapter-title"></h2>
+                <ul class="section-list">
+                    <li class="section">
+                        <h3 class="section-title"></h3>
+                        <p class="section-content"></p>
+                    </li>
+                </ul>
+                <button class="btn btn-prev">Previous</button>
+                <button class="btn btn-next">Next</button>
+            </div>
+
+
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script>
+
+$(document).ready(function () {
+    var li = `<li class="nav-item">
+                                <a href="#" class="nav-link" onclick="getSectionDetails(1,1)">
+                                    <i class="fa fa-angle-right"></i>1.1 Orientation
+                                </a>
+                            </li>`;
+     var chapterId = Number(getCookie('chapterId'))
+     var sectionId = Number(getCookie('sectionId'))
+      console.log("Enter : ", chapterId, sectionId);
+
+     if (chapterId == 0 && sectionId == 0) {
+     getSectionDetails(1,1)
+     } else {
+     getSectionDetails(chapterId,sectionId)
+     }
+
+ });
+
+  function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function change_chapter (operation) {
+ var chapterId = Number(getCookie('chapterId'))
+ var sectionId = Number(getCookie('sectionId'))
+ if (sectionId < 5) {
+    if(operation == 'Increment'){
+        sectionId = sectionId + 1;
+    } else {
+        sectionId = sectionId - 1;
+    }
+ } else {
+    if(operation == 'Increment'){
+        chapterId = chapterId + 1;
+    } else {
+    chapterId = chapterId - 1;
+    }
+ }
+ console.log("======chapterId=======", chapterId)
+ console.log("===sectionId==========", sectionId)
+ console.log("=====operation========", operation)
+ getSectionDetails(chapterId,sectionId);
+ document.cookie = `chapterId=${chapterId}`;
+ document.cookie = `sectionId=${sectionId}`;
+}
+function getSectionList (chapterId) {
+     let headers = null;
+
+     if (!headers) {
+         headers = {}
+     }
+     $.ajax({
+         url: url + `/chapters/${chapterId}/section-list`,
+         type: "GET",
+         dataSrc: 'responseData',
+         headers: {
+             headers,
+             Authorization: 'Bearer ' + localStorage.getItem('access_token')
+         },
+         success: function (res) {
+             console.log(res.descriptionContext);
+
+            res.forEach(function(chapter, index) {
+            console.log("chapter id : ", index);
+              // clone the template
+  var $chapter = $('.chapter').clone();
+
+  // update the chapter title
+  $chapter.find('.chapter-title').text(chapter.title);
+
+  // loop through the sections
+  $.each(chapter.sections, function (index, section) {
+    // clone the section template
+    var $section = $chapter.find('.section').clone();
+
+    // update the section title and content
+    $section.find('.section-title').text(section.title);
+    $section.find('.section-content').html(section.descriptionContext);
+
+    // append the section to the section list
+    $chapter.find('.section-list').append($section);
+  });
+
+  // append the chapter to the page
+  $('body').append($chapter);
+            });
+
+         },
+     })
+
+ }
+ function getSectionDetails (chapterId, sectionId) {
+     let headers = null;
+     console.log("document loaded", chapterId, sectionId);
+     if (!headers) {
+         headers = {}
+     }
+     $.ajax({
+         url: url + `/chapters/${chapterId}/sections/${sectionId}`,
+         type: "GET",
+         dataSrc: 'responseData',
+         headers: {
+             headers,
+             Authorization: 'Bearer ' + localStorage.getItem('access_token')
+         },
+         success: function (res) {
+             console.log(res.descriptionContext);
+             $("#title").text(res.indexNumber +" "+ res.title);
+             $("#description-context").html(res.descriptionContext);
+
+         },
+     })
+
+ }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+
+
+</body>
+
+</html>

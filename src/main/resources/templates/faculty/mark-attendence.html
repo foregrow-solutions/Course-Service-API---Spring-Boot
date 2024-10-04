@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="layouts/fragments/head">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.css"/>
+
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.13.1/sp-2.1.0/datatables.min.js"></script>
+
+</head>
+<body id="page-top">
+
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <header th:replace="layouts/fragments/admin-header"></header>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="layouts/fragments/faculty-sidebar"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one vh-100">
+            <!-- Breadcubs Area Start Here -->
+            <div class="breadcrumbs-area">
+                <h3 class="font-weight-bold mb-2"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Fill
+                    Attendence</h3>
+                <p class="mb-0">Please mark student attendence for behind the wheel</p>
+            </div>
+            <div class="row gutters-20 mb-4">
+                <div class="col-xl-6 col-sm-12 col-12">
+                    <div class="dashboard-summery-one mg-b-20">
+                        <div class="add-school mt-2">
+                            <form id="#" method="post" enctype="multipart/form-data" action="#">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Student Name</label>
+                                            <select class="form-control">
+                                                <option disabled selected>Select Student</option>
+                                                <option>Willie Makit</option>
+                                                <option>John Deo</option>
+                                                <option>Richi Martin</option>
+                                                <option>Johnson Methew</option>
+                                                <option>David Beckam</option>
+                                                <option>Sheile Martin</option>
+                                                <option>Ruby Jameson</option>
+                                                <option>Michel Methew</option>
+                                                <option>Aglina Makit</option>
+                                                <option>Mark Deo</option>
+                                                <option>Willie Makit</option>
+                                                <option>John Deo</option>
+                                                <option>Richi Martin</option>
+                                                <option>Johnson Methew</option>
+                                                <option>David Beckam</option>
+                                                <option>Sheile Martin</option>
+                                                <option>Ruby Jameson</option>
+                                                <option>Michel Methew</option>
+                                                <option>Aglina Makit</option>
+                                                <option>Mark Deo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Permit No.</label>
+                                            <select class="form-control">
+                                                <option disabled selected>Select Permit</option>
+                                                <option>1234-5678-01</option>
+                                                <option>1234-5678-02</option>
+                                                <option>1234-5678-03</option>
+                                                <option>1234-5678-04</option>
+                                                <option>1234-5678-05</option>
+                                                <option>1234-5678-06</option>
+                                                <option>1234-5678-07</option>
+                                                <option>1234-5678-08</option>
+                                                <option>1234-5678-09</option>
+                                                <option>1234-5678-10</option>
+                                                <option>1234-5678-11</option>
+                                                <option>1234-5678-12</option>
+                                                <option>1234-5678-13</option>
+                                                <option>1234-5678-14</option>
+                                                <option>1234-5678-15</option>
+                                                <option>1234-5678-16</option>
+                                                <option>1234-5678-17</option>
+                                                <option>1234-5678-18</option>
+                                                <option>1234-5678-19</option>
+                                                <option>1234-5678-20</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Date</label>
+                                            <input type="date" class="form-control" name="birthdate" placeholder=""
+                                                   required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Time In</label>
+                                            <input type="time" class="form-control" name="birthdate" placeholder=""
+                                                   required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Time Out</label>
+                                            <input type="time" class="form-control" name="birthdate" placeholder=""
+                                                   required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Total Hrs</label>
+                                            <input type="text" class="form-control" name="hours" placeholder="6 Hrs"
+                                                   required="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="btn-dash text-right mt-4">
+                                    <button type="reset" class="btn btn-primary bg-white border-white">Reset</button>
+                                    <button type="submit" onclick="window.location='faculty-dashboard.html'"
+                                            class="btn btn-primary ml-2">Save
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="footer-wrap-layout1 dash-fot">
+                <div class="copyright">&#169;Copyrights <a href="/">ELDT Inc.</a> 2022. All rights reserved.
+                    Powered by <a href="#">Winggs</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/main.js"></script>
+
+
+</body>
+
+</html>
